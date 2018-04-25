@@ -1,0 +1,1 @@
+java -jar spring-commission-thymeleaf-1.0.0.jar

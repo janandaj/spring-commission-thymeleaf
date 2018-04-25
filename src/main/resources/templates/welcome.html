@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Head Hunter Commission Calculator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h3>Commission Calculator</h3>
+        <h4>
+            <span th:text="${message}"></span>
+        </h4>
+
+
+        <table border="1">
+            <tr>
+                <td><label th:text="${hhid}"/></td>
+                <td><label th:text="${hhname}"/></td>
+            </tr>
+            <tr th:each="headHunter: ${headHunters}">
+                <td width="20%" align="center"><span th:text="${headHunter.id}"/></td>
+                <td width="60%" align="left"><span th:text="${headHunter.name}"/></td>
+                <td width="20%" align="center">
+                        <a th:href="@{'/recruits/' + ${headHunter.id}}">View Recruits</a>
+                </td>
+            </tr>
+        </table>
+
+        <!--<form action="#" th:action="@{/recruits}" th:object="${headHunter}" method="post">-->
+        <!--<form action="#" method="post">-->
+            <!--<table border="1">-->
+                <!--<tr th:each="headHunter: ${headHunters}">-->
+                    <!--<td><label th:text="#{msg.id}"/></td>-->
+                    <!--<td><input type="number" th:field="${headHunter.id}"/></td>-->
+                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                    <!--<td><label th:text="#{msg.name}"/></td>-->
+                    <!--<td><input type="text" th:field="${headHunter.name}"/></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td><input type="submit" value="Submit"/></td>-->
+                <!--</tr>-->
+            <!--</table>-->
+        <!--</form>-->
+
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

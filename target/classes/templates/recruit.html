@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Head Hunter Commission Calculator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h3>Commission Calculator</h3>
+        <h4>
+            <span th:text="${message}"></span>
+        </h4>
+
+
+        <table border="1">
+            <tr>
+                <td><label th:text="${rtid}"/></td>
+                <td><label th:text="${rtname}"/></td>
+                <td><label th:text="${rtjobtype}"/></td>
+                <td><label th:text="${hhid}"/></td>
+            </tr>
+            <tr th:each="recruit: ${recruits}">
+                <td width="20%" align="center"><span th:text="${recruit.id}"/></td>
+                <td width="40%" align="left"><span th:text="${recruit.name}"/></td>
+                <td width="20%" align="left">
+                    <span th:if="${recruit.jobType} == '1'" th:text="Mason"/>
+                    <span th:unless="${recruit.jobType} == '1'" th:text="Carpenter"/>
+                </td>
+                <td width="20%" align="center"><span th:text="${recruit.hunterId}"/></td>
+            </tr>
+        </table>
+
+        <div>
+            <a th:href="@{'/commission/' + ${hunterId}}">Calculate Fee</a>
+            <label th:text="${commission}"/>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
